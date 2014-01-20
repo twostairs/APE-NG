@@ -116,7 +116,7 @@ static char *ws_compute_key(const char *key, unsigned int key_len)
     memcpy(out, key, key_len);
     memcpy(out+key_len, WS_IETF_GUID, sizeof(WS_IETF_GUID)-1);
     
-    sha1_csum((unsigned char *)out, (sizeof(WS_IETF_GUID)-1)+key_len, digest);
+    sha1((unsigned char *)out, (sizeof(WS_IETF_GUID)-1)+key_len, digest);
     
     b64 = base64_encode(digest, 20);
     

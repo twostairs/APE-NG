@@ -1942,7 +1942,7 @@ APE_JS_NATIVE(ape_sm_sha1_bin)
 	cstring = JS_EncodeString(cx, string);
 	
 	if (hmac == NULL) {
-		sha1_csum((unsigned char *)cstring, JS_GetStringEncodingLength(cx, string), digest);
+		sha1((unsigned char *)cstring, JS_GetStringEncodingLength(cx, string), digest);
 	} else {
 		chmac = JS_EncodeString(cx, hmac);
 		sha1_hmac((unsigned char *)chmac, JS_GetStringEncodingLength(cx, hmac), (unsigned char *)cstring, JS_GetStringEncodingLength(cx, string), digest);
@@ -1971,7 +1971,7 @@ APE_JS_NATIVE(ape_sm_sha1_str)
 	cstring = JS_EncodeString(cx, string);
 	
 	if (hmac == NULL) {
-		sha1_csum((unsigned char *)cstring, JS_GetStringEncodingLength(cx, string), digest);
+		sha1((unsigned char *)cstring, JS_GetStringEncodingLength(cx, string), digest);
 	} else {
 		chmac = JS_EncodeString(cx, hmac);
 		sha1_hmac((unsigned char *)chmac, JS_GetStringEncodingLength(cx, hmac), (unsigned char *)cstring, JS_GetStringEncodingLength(cx, string), digest);
